@@ -11,3 +11,13 @@ This web application contains
 
 --
 The Front-end-side of this web app is using HTML, Bootstap and Jquery
+--
+
+# installation
+1. Download / clone the project to your computer
+2. open cmd with directory pointed at the project
+3. type npm install
+4. Once done, open app.js => and set your database 
+5. still in cmd, type npm start
+6. run the projevt on : http://localhost:3000
+7. Enjoy :)
