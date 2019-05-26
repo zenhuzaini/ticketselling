@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Concert Portal | Zen x Monterail</title>
+
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  
+</head>
+
+<body>
+
+  <%- include ../navigation_and_header.ejs %>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+        <% for (var i = 0; i < concert.length; i++) { %>
+        <div class="col-md-4 mb-5">
+          <div class="card h-100">
+            <div class="card-body">
+              <h4 class="card-title"><%= concert[i].title %></h4>
+              <p class="card-text"><%= concert[i].description %></p>
+            </div>
+            <div class="card-footer">
+              <% if (concert[i].ticket <= 0) { %>
+                <a href="#" onclick="myFunction()" class="btn btn-outline-danger"><%= concert[i].ticket %> Ticket Available</a>
+                <br>
+              <% } else { %>
+                <a href="#" onclick="myFunction1()" class="btn btn-outline-success"><%= concert[i].ticket %> Ticket Available</a>
+                <a href="concert/getconcert/<%= concert[i]._id %>" class="btn btn-primary">Find Out More!</a>
+              <% } %>
+            </div>
+          </div>
+        </div>
+        <% } %>
+    </div>  
+  </div>
+  <!-- /.container -->
+
+  <% include ../footer %>
+
+  <script>
+    function myFunction1() {
+      alert("Hello! the ticket is available !");
+    }
+  </script>
+
+  <script>
+    function myFunction() {
+      alert("Hello! We are sorry, but the ticket is now sold out :(");
+    }
+  </script>
+
+</body>
+</html>

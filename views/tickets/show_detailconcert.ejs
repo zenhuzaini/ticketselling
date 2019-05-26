@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Concert Portal</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  
+</head>
+
+<body>
+
+  <%- include ../navigation_and_header.ejs %>
+
+   <!-- Page Content -->
+   <div class="container">
+
+      <div class="row">
+        <div class="col-md-8 mb-5">
+          <h2><%= getOneConcert.title %></h2>
+          <hr>
+          <p>
+              <%= getOneConcert.description %>
+          </p>
+          <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p> -->
+          
+        </div>
+        <div class="col-md-4 mb-5">
+          <h2>Details</h2>
+          <hr>
+          <address>
+            <strong>Available Ticket</strong>
+            <br><%= getOneConcert.ticket %>
+          </address>
+          <address>
+              <strong>Date & Time</strong>
+              <br><%= getOneConcert.date %> | <%= getOneConcert.time %>
+          </address>
+          <address>
+              <strong>Location</strong>
+              <br><%= getOneConcert.location %>
+          </address>
+          <address>
+            <strong>Price</strong>
+            <br>
+            <%= getOneConcert.price %>
+          </address>
+          <form action="/buyticket/<%= getOneConcert._id %> " method="post">
+            <input type="text" value="<%= getOneConcert.price %>" name="price" id="price" hidden >
+            <button class="btn btn-primary btn-lg">Buy</button>
+          </form>
+          
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+  <% include ../footer %>
+
+</body>
+</html>

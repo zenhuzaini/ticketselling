@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Concert Portal</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Custom styles for this template -->
+  <!-- <link href="css/business-frontpage.css" rel="stylesheet"> -->
+</head>
+
+<body>
+
+  <%- include ../navigation_and_header.ejs %>
+
+   <!-- Page Content -->
+   <div class="container">
+
+      <div class="row">
+        <div class="col-md-8 mb-5">
+          <h2>CONGRATULATIONS!</h2>
+          <hr>
+          <p>
+              The payment has been made! Thank you!
+          </p>
+          <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p> -->
+          
+        </div>
+        <div class="col-md-4 mb-5">
+          <h2>Details</h2>
+          <hr>
+          <address>
+            <strong>ID Ticket</strong>
+            <br><%= savePayment._id %>
+          </address>
+          <address>
+            <strong>Date of Payment</strong>
+            <br><%= savePayment.datePayment %>
+          </address>
+          <address>
+              <strong>ID Concert</strong>
+              <br><%= savePayment.concertId %>
+            </address>
+          <address>
+            <strong>Price</strong>
+            <br>
+            <%= savePayment.totalPayment %>
+          </address>
+         
+            <button class="btn btn-primary btn-lg" onclick="myFunction()">Print COnfirmation</button>
+          
+          
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+  <% include ../footer %>
+    <script>
+        function myFunction() {
+        window.print();
+        }
+    </script>
+
+</body>
+</html>

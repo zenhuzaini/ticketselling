@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Concert Portal | Zen x Monterail</title>
+
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  
+</head>
+
+<body>
+
+  <%- include ../navigation_and_header.ejs %>
+
+  <!-- Page Content -->
+  <div class="container">
+      <div class="row">
+          <div class="col-md-8 mb-5">
+            <h2>List Concert</h2>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Time/Date</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Options</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for (var i=0; i < allConcerts.length; i++) { %>
+                <tr>
+                  <th scope="row"><%= i+1 %></th>
+                  <td><%= allConcerts[i].title %></td>
+                  <td><%= allConcerts[i].location %></td>
+                  <td><%= allConcerts[i].time %></td>
+                  <td><%= allConcerts[i].date %></td>
+                  <td>
+                      <a href="delete/<%= allConcerts[i]._id %>" class="btn btn-outline-success">Delete</a>
+                      <a href="update/<%= allConcerts[i]._id %>" class="btn btn-primary" >Edit</a>
+                  </td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="col-md-4 mb-5">
+              <h2>Add Concert</h2>
+              <form action="saveconcert" method="POST">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Concert Name</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Enter concert name">
+                    <small id="title" class="form-text text-muted">Name of your concert</small>
+                  </div>
+                  <div class="form-group">
+                      <label for="exampleInputEmail1">Location</label>
+                      <input type="text" class="form-control" id="location" name="location" placeholder="Enter location">
+                      <small id="emailHelp" class="form-text text-muted">it can be your address or a place</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Date</label>
+                        <input type="date" class="form-control" id="date" name="date" placeholder="Enter date">
+                        <small id="emailHelp" class="form-text text-muted">Dte the event will start.</small>
+                    </div>
+                    <div class="form-group">
+                          <label for="exampleInputEmail1">Time</label>
+                          <input type="time" class="form-control" id="time" name="time" placeholder="Enter time">
+                          <small id="emailHelp" class="form-text text-muted">Time the event will start.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Price</label>
+                        <input type="number" class="form-control" id="price" name="price" placeholder="Enter price">
+                        <small id="emailHelp" class="form-text text-muted">the currency used is in EUR. Just put the amount, example 300</small>
+                    </div>
+      
+                    <div class="form-group">
+                          <label for="exampleInputEmail1">Ticket</label>
+                          <input type="number" class="form-control" id="ticket" name="ticket" placeholder="Enter amount of ticket">
+                          <small id="emailHelp" class="form-text text-muted">example 400</small>
+                    </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+              </form>    
+              
+          </div>
+      </div>
+    <br>
+    <hr>
+  </div>
+  <!-- /.container -->
+
+  <% include ../footer %>
+
+
+
+</body>
+</html>

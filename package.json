@@ -1,0 +1,24 @@
+{
+  "name": "concerttiket",
+  "version": "1.0.0",
+  "description": "concertiket app by zen",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "zenhuzaini",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.3.1",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.17.0",
+    "jquery": "^3.4.1",
+    "mongoose": "^5.5.11",
+    "nodemon": "^1.19.0",
+    "path": "^0.12.7"
+  }
+}
